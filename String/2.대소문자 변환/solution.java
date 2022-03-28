@@ -10,9 +10,9 @@ class Main {
         char[] target = br.readLine().toCharArray();
         StringBuilder sb = new StringBuilder();
         for (char t : target) {
-            if ('a' <= t && t <= 'z')
+            if (Character.isLowerCase(t))
                 sb.append(Character.toUpperCase(t));
-            if ('A' <= t && t <= 'Z')
+            if (Character.isUpperCase(t))
                 sb.append(Character.toLowerCase(t));
         }
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
