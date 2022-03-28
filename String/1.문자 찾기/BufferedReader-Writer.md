@@ -37,4 +37,6 @@ BufferedRead와 Scanner의 속도 차이를 잘 보여주는 예시가 있어 �
 또한 BufferedReader는 동기화 되기 때문에 멀티 쓰레드 환경에서 안전하고, Scanner는 동기화가 되지 않기 때문에 멀티 쓰레드 환경에서 안전하지 않다.  
 
 ---
-출처 : https://rlakuku-program.tistory.com/33
+[출처]
+1. https://rlakuku-program.tistory.com/33
+2. https://jhnyang.tistory.com/92 
