@@ -5,6 +5,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 class Main {
+
+    public static void closeBuffer(BufferedReader br, BufferedWriter bw) throws IOException {
+        bw.close();
+        br.close();
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         char[] target = br.readLine().toCharArray();
@@ -18,7 +24,6 @@ class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         bw.write(sb.toString());
         bw.flush();
-        bw.close();
-        br.close();
+        closeBuffer(br, bw);
     }
 }
