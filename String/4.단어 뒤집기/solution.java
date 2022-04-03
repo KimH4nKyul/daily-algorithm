@@ -31,7 +31,7 @@ class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(br.readLine());
         List<String> lists = inputStrings(num, br);
-
+        br.read()
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         for (String s : lists) {
