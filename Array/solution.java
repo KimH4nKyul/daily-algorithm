@@ -6,21 +6,26 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-class Main {
+class Main2 {
     public static void main(String[] args) throws IOException {
         //
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int target = Integer.parseInt(br.readLine());
-        int recent = 0;
+        int current = 0;
         List<Integer> lists = new ArrayList<>();
         for (int i = 0; i < target; i++) {
             int t = Integer.parseInt(br.readLine());
-            lists.add(t);
-            // if (lists.isEmpty() || (t < recent)) {
-            // recent = t;
-            // lists.add(t);
-            // }
+            if (lists.isEmpty() || lists.size() < 3) {
+                lists.add(t);
+                current = t;
+            } else {
+                if (current < t) {
+                    lists.add(t);
+                }
+                current = t;
+            }
         }
+        lists.remove(1);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         bw.append(lists.toString());
         bw.flush();
