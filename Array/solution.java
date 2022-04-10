@@ -10,24 +10,33 @@ class Main2 {
     public static void main(String[] args) throws IOException {
         //
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int target = Integer.parseInt(br.readLine());
-        int current = 0;
-        List<Integer> lists = new ArrayList<>();
-        for (int i = 0; i < target; i++) {
-            int t = Integer.parseInt(br.readLine());
-            if (lists.isEmpty() || lists.size() < 3) {
-                lists.add(t);
-                current = t;
-            } else {
-                if (current < t) {
-                    lists.add(t);
-                }
-                current = t;
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        List<Integer> problems = new ArrayList<>();
+        List<Integer> answers = new ArrayList<>();
+
+        int len = Integer.parseInt(br.readLine());
+        String[] values = br.readLine().split(" ");
+        
+        if((len < values.length) || values.length < len) {
+            System.exit(-1);
+        }
+
+
+        for(int i=0; i<values.length; i++) {
+            problems.add(Integer.parseInt(values[i]));
+        }
+       
+        answers.add(problems.get(0));
+        for(int i=1; i<problems.size(); i++) {
+            if(problems.get(i) > problems.get(i-1)) {
+                answers.add(problems.get(i));
             }
         }
-        lists.remove(1);
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        bw.append(lists.toString());
+
+        for(int i=0; i<answers.size(); i++) {
+            bw.append(String.valueOf(answers.get(i)) + " ");
+        }
+        
         bw.flush();
         bw.close();
         br.close();
